@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between title and list */
+}
+
+.Ttl {
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 10px; /* Adjust margins as needed */
+    padding: 10px 15px;
+    color: #FFD700;
+    background-color: #555;
+    border-radius: 15px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.navbar ul li:hover {
+    color: #FF6347;
+    background-color: #666;
+    cursor: pointer;
+}
+
+.Ptrr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.Ptrr h1 {
+    font-size: 10rem;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .navbar ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .Ttl {
+        text-align: center;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .Ptrr h1 {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .Ptrr {
+        height: 50vh;
+    }
+    
+    .Ptrr h1 {
+        font-size: 3rem;
+        font-family: "Rubik Bubbles", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+}
