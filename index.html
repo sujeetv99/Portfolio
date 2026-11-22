@@ -1,24 +1,1316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Sujeet Kumar V | Quality Engineer & Auditor</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            950: '#07090e',
+                            900: '#0d111a',
+                            800: '#151c2c',
+                            700: '#1e293b',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        },
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #07090e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+
+        /* Glassmorphism Utilities */
+        .glass {
+            background: rgba(21, 28, 44, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: linear-gradient(145deg, rgba(21, 28, 44, 0.7) 0%, rgba(13, 17, 26, 0.85) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(251, 191, 36, 0.35);
+            box-shadow: 0 12px 40px -10px rgba(245, 158, 11, 0.15), 0 0 20px rgba(34, 211, 238, 0.06);
+            transform: translateY(-4px);
+        }
+
+        /* Background Grid Pattern */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+        }
+
+        /* Reveal on Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 45%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-<body>
-    <div class="navbar">
-        <header class="Ttl">SUJEET K.V</header>
-        <ul>
-            <li><a href="about.html" target="_blank">About me</a></li>
-            <li><a href="experience.html" target="_blank">Work Experience</a></li>
-            <li><a href="education.html" target="_blank">Education Qualification</a></li>
-            <li><a href="skills.html" target="_blank">Skills</a></li>
-            <li><a href="project.html" target="_blank">Projects</a></li>
-        </ul>
+<body class="bg-dark-950 text-slate-200 font-sans antialiased selection:bg-gold-500/30 selection:text-gold-400 overflow-x-hidden">
+
+    <!-- Ambient Animated Background Orbs & Grid -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden bg-grid">
+        <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-gold-500/15 rounded-full mix-blend-screen filter blur-3xl animate-blob"></div>
+        <div class="absolute top-[25%] right-[-5%] w-96 h-96 bg-cyan-500/15 rounded-full mix-blend-screen filter blur-3xl animate-blob" style="animation-delay: 2s;"></div>
+        <div class="absolute bottom-[-10%] left-[25%] w-[30rem] h-[30rem] bg-amber-600/10 rounded-full mix-blend-screen filter blur-3xl animate-blob" style="animation-delay: 4s;"></div>
     </div>
-    <div class="Ptrr">
-        <h1>Portfolio</h1>
+
+    <!-- Toast Notification for Copy Email -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="glass px-5 py-3.5 rounded-2xl border border-gold-400/40 shadow-2xl flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-400">
+                <i data-lucide="check" class="w-4 h-4"></i>
+            </div>
+            <div>
+                <p class="text-sm font-semibold text-white">Email Copied!</p>
+                <p class="text-xs text-slate-400">sujeet.vishwa@tuv.net copied to clipboard</p>
+            </div>
+        </div>
     </div>
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="glass rounded-2xl px-5 py-3.5 flex items-center justify-between shadow-lg">
+                <!-- Brand Logo -->
+                <a href="#hero" class="flex items-center gap-2.5 group">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-gold-400 to-amber-600 flex items-center justify-center text-dark-950 font-display font-bold text-lg shadow-md group-hover:scale-105 transition-transform">
+                        S
+                    </div>
+                    <span class="font-display font-bold text-lg tracking-wider text-white group-hover:text-gold-400 transition-colors">
+                        SUJEET <span class="text-gold-400">K.V</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <ul class="hidden md:flex items-center gap-1 lg:gap-2">
+                    <li><a href="#about" class="nav-link px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-gold-400 hover:bg-white/5 transition-all">About</a></li>
+                    <li><a href="#experience" class="nav-link px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-gold-400 hover:bg-white/5 transition-all">Experience</a></li>
+                    <li><a href="#education" class="nav-link px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-gold-400 hover:bg-white/5 transition-all">Education</a></li>
+                    <li><a href="#skills" class="nav-link px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-gold-400 hover:bg-white/5 transition-all">Skills</a></li>
+                    <li><a href="#projects" class="nav-link px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-gold-400 hover:bg-white/5 transition-all">Projects</a></li>
+                    <li><a href="#contact" class="nav-link px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-gold-400 hover:bg-white/5 transition-all">Contact</a></li>
+                </ul>
+
+                <!-- Right Action & Mobile Hamburger -->
+                <div class="flex items-center gap-3">
+                    <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-400 hover:to-amber-500 text-dark-950 font-semibold text-sm shadow-lg shadow-gold-500/20 transition-all hover:scale-[1.02]">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span>Contact</span>
+                    </a>
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden p-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-200 transition-colors">
+                        <i data-lucide="menu" id="menu-icon" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Mobile Dropdown Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-2 glass rounded-2xl p-4 border border-white/10 shadow-2xl">
+                <ul class="flex flex-col space-y-1.5">
+                    <li><a href="#about" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-gold-400 transition-colors">About Me</a></li>
+                    <li><a href="#experience" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-gold-400 transition-colors">Work Experience</a></li>
+                    <li><a href="#education" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-gold-400 transition-colors">Education Qualification</a></li>
+                    <li><a href="#skills" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-gold-400 transition-colors">Skills</a></li>
+                    <li><a href="#projects" class="mobile-nav-link block px-4 py-3 rounded-xl text-sm font-medium text-slate-200 hover:bg-white/10 hover:text-gold-400 transition-colors">Projects</a></li>
+                    <li class="pt-2">
+                        <a href="#contact" class="mobile-nav-link flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 text-dark-950 font-semibold text-sm">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            <span>Get in Touch</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative z-10">
+
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl mx-auto text-center">
+                <!-- Role Badge -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass border border-gold-400/30 mb-8 animate-float">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-gold-400"></span>
+                    </span>
+                    <span class="text-xs sm:text-sm font-medium tracking-wide text-gold-400 uppercase">Quality Engineer & Auditor</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight">
+                    Hi, I'm <span class="text-gradient">Sujeet Kumar V</span>
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-400 mb-10 leading-relaxed">
+                    Precision-driven <span class="text-slate-200 font-medium">Quality Engineer & Auditor</span> bridging electronics manufacturing excellence, global compliance standards (Jio, Amazon, TUV), and modern IT software solutions.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-400 hover:to-amber-500 text-dark-950 font-semibold text-base shadow-xl shadow-gold-500/20 transition-all hover:scale-105">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                        <span>Contact Me</span>
+                    </a>
+                    <a href="#experience" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl glass hover:bg-white/10 text-white font-medium text-base border border-white/10 hover:border-gold-400/40 transition-all">
+                        <span>Explore Experience</span>
+                        <i data-lucide="arrow-down-right" class="w-5 h-5 text-gold-400"></i>
+                    </a>
+                    <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl glass hover:bg-white/10 text-white font-medium text-base border border-white/10 hover:border-cyan-400/40 transition-all">
+                        <i data-lucide="cpu" class="w-5 h-5 text-cyan-400"></i>
+                        <span>View Projects</span>
+                    </a>
+                </div>
+
+                <!-- Quick Stats Bar -->
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                    <div class="glass-card rounded-2xl p-4 text-center">
+                        <p class="font-display text-2xl sm:text-3xl font-bold text-gold-400">6+ Yrs</p>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">Quality & Audit Exp.</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-4 text-center">
+                        <p class="font-display text-2xl sm:text-3xl font-bold text-cyan-400">3 Majors</p>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">Jio, Amazon & TUV</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-4 text-center">
+                        <p class="font-display text-2xl sm:text-3xl font-bold text-gold-400">15+ Tools</p>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">QMS, CAPA, 7QC, 8D</p>
+                    </div>
+                    <div class="glass-card rounded-2xl p-4 text-center">
+                        <p class="font-display text-2xl sm:text-3xl font-bold text-cyan-400">B.Sc IT</p>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">& Electronics Diploma</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT ME SECTION -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="reveal text-center mb-14">
+                    <span class="text-xs font-semibold tracking-widest uppercase text-cyan-400">Personal Profile</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">About <span class="text-gold-400">Me</span></h2>
+                </div>
+
+                <div class="reveal glass-card rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+                    <!-- Decorative Corner Glow -->
+                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <!-- Left Avatar / Identity Card -->
+                        <div class="lg:col-span-5 flex flex-col items-center text-center p-6 rounded-2xl bg-dark-900/70 border border-white/5">
+                            <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-gold-400 via-amber-500 to-cyan-500 p-0.5 mb-5 shadow-lg shadow-gold-500/20">
+                                <div class="w-full h-full rounded-2xl bg-dark-900 flex items-center justify-center">
+                                    <span class="font-display text-3xl font-bold text-gradient">SKV</span>
+                                </div>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-white">Sujeet Kumar V</h3>
+                            <p class="text-gold-400 font-medium text-sm mt-1">Quality Engineer & Auditor</p>
+                            
+                            <div class="w-full h-px bg-white/10 my-5"></div>
+
+                            <!-- Personal Details List -->
+                            <div class="w-full space-y-3 text-left">
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                                    <div class="flex items-center gap-2.5 text-slate-400 text-sm">
+                                        <i data-lucide="calendar" class="w-4 h-4 text-gold-400"></i>
+                                        <span>Date of Birth</span>
+                                    </div>
+                                    <span class="text-sm font-semibold text-slate-200">10/04/1996</span>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.03] border border-white/5">
+                                    <div class="flex items-center gap-2.5 text-slate-400 text-sm">
+                                        <i data-lucide="briefcase" class="w-4 h-4 text-cyan-400"></i>
+                                        <span>Role</span>
+                                    </div>
+                                    <span class="text-sm font-semibold text-slate-200">Quality Engineer & Auditor</span>
+                                </div>
+
+                                <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.03] border border-white/5 gap-2">
+                                    <div class="flex items-center gap-2.5 text-slate-400 text-sm min-w-0">
+                                        <i data-lucide="mail" class="w-4 h-4 text-gold-400 shrink-0"></i>
+                                        <a href="#contact" class="text-sm font-semibold text-slate-200 hover:text-gold-400 truncate transition-colors">
+                                            sujeet.vishwa@tuv.net
+                                        </a>
+                                    </div>
+                                    <button onclick="copyEmail()" title="Copy Email" class="p-2 rounded-lg bg-gold-500/15 hover:bg-gold-500/30 text-gold-400 transition-colors shrink-0">
+                                        <i data-lucide="copy" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Bio & Core Value Proposition -->
+                        <div class="lg:col-span-7 space-y-5">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold">
+                                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                <span>Dual-Domain Specialist: Electronics Quality & IT Systems</span>
+                            </div>
+
+                            <h4 class="font-display text-2xl sm:text-3xl font-bold text-white leading-snug">
+                                Ensuring Zero-Defect Manufacturing Through Data, Audits & Engineering.
+                            </h4>
+
+                            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+                                Dedicated <strong class="text-white">Quality Engineer & Auditor</strong> with hands-on expertise in Pre-Dispatch Inspection (PDI), Advanced Shipping Notice (ASN), Incoming/Outgoing Quality Control (IQC/OQC), and end-to-end assembly line auditing for industry leaders including <span class="text-gold-400 font-medium">Jio, Amazon, and TUV</span>.
+                            </p>
+
+                            <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
+                                Backed by an <strong class="text-slate-200">Electronics & Telecommunications Diploma</strong> and a <strong class="text-slate-200">B.Sc in Information Technology</strong>, I combine deep shop-floor quality methodologies (CAPA, 8D, 7 QC Tools, 5 Core Tools, AQL sampling) with software development capabilities in Python, Java, SQL, and Web Technologies.
+                            </p>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                                <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                    <div class="p-2.5 rounded-xl bg-gold-500/15 text-gold-400">
+                                        <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-white text-sm">Client & Process Audits</h5>
+                                        <p class="text-xs text-slate-400 mt-1">FPY tracking, AQL verification, WI & BOM compliance.</p>
+                                    </div>
+                                </div>
+                                <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                    <div class="p-2.5 rounded-xl bg-cyan-500/15 text-cyan-400">
+                                        <i data-lucide="code-2" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-white text-sm">Technical & IT Acumen</h5>
+                                        <p class="text-xs text-slate-400 mt-1">Microcontrollers, GSM automation, Python & MySQL.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. WORK EXPERIENCE SECTION -->
+        <section id="experience" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="reveal text-center mb-14">
+                    <span class="text-xs font-semibold tracking-widest uppercase text-gold-400">Career Journey</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Work <span class="text-cyan-400">Experience</span></h2>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="relative border-l-2 border-white/10 ml-3 sm:ml-6 space-y-10">
+
+                    <!-- Experience 1: Growth Electricals -->
+                    <div class="reveal relative pl-7 sm:pl-10">
+                        <!-- Timeline Node -->
+                        <span class="absolute -left-[11px] top-6 w-5 h-5 rounded-full bg-dark-950 border-4 border-gold-400 shadow-[0_0_15px_rgba(251,191,36,0.6)]"></span>
+
+                        <div class="glass-card rounded-3xl p-6 sm:p-8">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-white/10">
+                                <div>
+                                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/15 text-gold-400 text-xs font-semibold mb-2">
+                                        <span class="w-2 h-2 rounded-full bg-gold-400 animate-pulse"></span>
+                                        <span>July 2021 – Currently Working</span>
+                                    </div>
+                                    <h3 class="font-display text-2xl sm:text-3xl font-bold text-white">Growth Electricals</h3>
+                                    <p class="text-slate-300 text-sm sm:text-base mt-2">
+                                        We conduct audits, <strong class="text-gold-400">ASN</strong>, and <strong class="text-gold-400">PDI</strong> for our clients <span class="text-cyan-400 font-semibold">Jio, Amazon, and TUV</span>.
+                                    </p>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-slate-200">Jio</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-slate-200">Amazon</span>
+                                    <span class="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-semibold text-slate-200">TUV</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-6">
+                                <div class="flex items-center justify-between mb-4">
+                                    <h4 class="font-display text-lg font-semibold text-gold-400 flex items-center gap-2">
+                                        <i data-lucide="list-checks" class="w-5 h-5"></i>
+                                        <span>Role and Responsibilities (16)</span>
+                                    </h4>
+                                    <button id="toggle-exp1-btn" onclick="toggleResponsibilities('exp1-grid', 'toggle-exp1-btn')" class="text-xs font-medium px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-cyan-400 transition-colors flex items-center gap-1.5">
+                                        <span>Compact View</span>
+                                        <i data-lucide="minimize-2" class="w-3.5 h-3.5"></i>
+                                    </button>
+                                </div>
+
+                                <!-- All 16 Responsibilities -->
+                                <ul id="exp1-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-300">
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Process Defects Reduction at the line</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Maintain the daily quality reports and follow up on the FPY</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Process Validation</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Material Validation</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Monitor the assembly line and make sure that no quality issues are there</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Inspection of FG and SFG type</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Verifying the product from annexure documents</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Taking the sampling accordingly to lot size</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>To start inspection process</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Check the AQL level according to sample size</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Carry out product and process auditing</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Manage all Quality related issues within the manufacturing team</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Identify root cause and instigate permanent corrective action for product quality issues</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Ensure control plans and associated documentation are implemented effectively and maintained</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Support and lead process improvement activities</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-gold-400/30 transition-colors">
+                                        <i data-lucide="check" class="w-4 h-4 text-gold-400 shrink-0 mt-0.5"></i>
+                                        <span>Review of WI and BOM</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2: Anand System Engineering Pvt Ltd -->
+                    <div class="reveal relative pl-7 sm:pl-10">
+                        <!-- Timeline Node -->
+                        <span class="absolute -left-[11px] top-6 w-5 h-5 rounded-full bg-dark-950 border-4 border-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)]"></span>
+
+                        <div class="glass-card rounded-3xl p-6 sm:p-8">
+                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-white/10">
+                                <div>
+                                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/15 text-cyan-400 text-xs font-semibold mb-2">
+                                        <i data-lucide="calendar-range" class="w-3.5 h-3.5"></i>
+                                        <span>July 2020 – July 2021</span>
+                                    </div>
+                                    <h3 class="font-display text-2xl sm:text-3xl font-bold text-white">Anand System Engineering Pvt Ltd</h3>
+                                </div>
+                            </div>
+
+                            <div class="mt-6">
+                                <h4 class="font-display text-lg font-semibold text-cyan-400 flex items-center gap-2 mb-4">
+                                    <i data-lucide="list-checks" class="w-5 h-5"></i>
+                                    <span>Role and Responsibilities</span>
+                                </h4>
+
+                                <!-- All 6 Responsibilities -->
+                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-300">
+                                    <li class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-400/30 transition-colors">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                        <span><strong class="text-white">Monitor and Test Quality:</strong> Regularly inspect and test products to ensure they meet quality standards</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-400/30 transition-colors">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                        <span><strong class="text-white">Identify Issues:</strong> Detect defects or issues in the manufacturing process and recommend solutions</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-400/30 transition-colors">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                        <span><strong class="text-white">Compliance:</strong> Ensure products comply with industry standards and regulations</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-400/30 transition-colors">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                        <span><strong class="text-white">Documentation:</strong> Create and maintain quality documentation and reports</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-400/30 transition-colors">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                        <span><strong class="text-white">Supplier Management:</strong> Work with suppliers to improve their performance and communication</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5 p-3.5 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-400/30 transition-colors">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-cyan-400 shrink-0 mt-0.5"></i>
+                                        <span><strong class="text-white">Process Improvement:</strong> Participate in the development and improvement of manufacturing processes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. EDUCATION QUALIFICATION SECTION -->
+        <section id="education" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="reveal text-center mb-14">
+                    <span class="text-xs font-semibold tracking-widest uppercase text-cyan-400">Academic Background</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Education <span class="text-gold-400">Qualification</span></h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- B.Sc IT -->
+                    <div class="reveal glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-28 h-28 bg-gold-500/10 rounded-bl-full transition-all group-hover:scale-110"></div>
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-xl bg-gold-500/15 text-gold-400 text-xs font-bold">June 2021</span>
+                                <span class="px-3 py-1 rounded-xl bg-cyan-500/15 text-cyan-400 text-xs font-bold">Score: 68%</span>
+                            </div>
+                            <h3 class="font-display text-xl sm:text-2xl font-bold text-white group-hover:text-gold-400 transition-colors">B.Sc IT</h3>
+                            <p class="text-slate-400 text-sm mt-1 flex items-center gap-1.5">
+                                <i data-lucide="graduation-cap" class="w-4 h-4 text-gold-400"></i>
+                                <span>Mumbai University</span>
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-gold-400 to-cyan-400 rounded-full" style="width: 68%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Electronics and Telecommunications Diploma -->
+                    <div class="reveal glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-28 h-28 bg-cyan-500/10 rounded-bl-full transition-all group-hover:scale-110"></div>
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-xl bg-cyan-500/15 text-cyan-400 text-xs font-bold">June 2016</span>
+                                <span class="px-3 py-1 rounded-xl bg-gold-500/15 text-gold-400 text-xs font-bold">Score: 67%</span>
+                            </div>
+                            <h3 class="font-display text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">Electronics and Telecommunications Diploma</h3>
+                            <p class="text-slate-400 text-sm mt-1 flex items-center gap-1.5">
+                                <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i>
+                                <span>MSBTE</span>
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-gold-400 rounded-full" style="width: 67%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HSC -->
+                    <div class="reveal glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-28 h-28 bg-gold-500/10 rounded-bl-full transition-all group-hover:scale-110"></div>
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-xl bg-gold-500/15 text-gold-400 text-xs font-bold">June 2014</span>
+                                <span class="px-3 py-1 rounded-xl bg-cyan-500/15 text-cyan-400 text-xs font-bold">Score: 54%</span>
+                            </div>
+                            <h3 class="font-display text-xl sm:text-2xl font-bold text-white group-hover:text-gold-400 transition-colors">HSC</h3>
+                            <p class="text-slate-400 text-sm mt-1 flex items-center gap-1.5">
+                                <i data-lucide="book-open" class="w-4 h-4 text-gold-400"></i>
+                                <span>Maharashtra Board</span>
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-gold-400 to-amber-500 rounded-full" style="width: 54%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SSC -->
+                    <div class="reveal glass-card rounded-3xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-28 h-28 bg-cyan-500/10 rounded-bl-full transition-all group-hover:scale-110"></div>
+                        <div>
+                            <div class="flex items-center justify-between gap-2 mb-4">
+                                <span class="px-3 py-1 rounded-xl bg-cyan-500/15 text-cyan-400 text-xs font-bold">March 2011</span>
+                                <span class="px-3 py-1 rounded-xl bg-gold-500/15 text-gold-400 text-xs font-bold">Score: 81.825%</span>
+                            </div>
+                            <h3 class="font-display text-xl sm:text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">SSC</h3>
+                            <p class="text-slate-400 text-sm mt-1 flex items-center gap-1.5">
+                                <i data-lucide="award" class="w-4 h-4 text-cyan-400"></i>
+                                <span>Maharashtra Board</span>
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <div class="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-gold-400 rounded-full" style="width: 81.825%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SKILLS SECTION -->
+        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="reveal text-center mb-10">
+                    <span class="text-xs font-semibold tracking-widest uppercase text-gold-400">Core Competencies</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Technical & Quality <span class="text-cyan-400">Skills</span></h2>
+                </div>
+
+                <!-- Interactive Filter Tabs -->
+                <div class="reveal flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10">
+                    <button onclick="filterSkills('all', this)" class="skill-filter-btn active px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all bg-gradient-to-r from-gold-500 to-amber-600 text-dark-950 shadow-lg shadow-gold-500/20">
+                        All Skills (24)
+                    </button>
+                    <button onclick="filterSkills('electronics', this)" class="skill-filter-btn px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all glass text-slate-300 hover:text-gold-400">
+                        Electronics Field (15)
+                    </button>
+                    <button onclick="filterSkills('it', this)" class="skill-filter-btn px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all glass text-slate-300 hover:text-cyan-400">
+                        IT Industries (9)
+                    </button>
+                </div>
+
+                <!-- Skills Categories Grid -->
+                <div id="skills-container" class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Electronics Field Skills -->
+                    <div data-category="electronics" class="skill-group lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-11 h-11 rounded-2xl bg-gold-500/15 border border-gold-400/30 flex items-center justify-center text-gold-400">
+                                <i data-lucide="microchip" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl sm:text-2xl font-bold text-white">Electronics Field</h3>
+                                <p class="text-xs text-slate-400">Quality Assurance, Auditing & Manufacturing Standards</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2.5">
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">PDI (Pre-Dispatch Inspection)</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">Report Making of PDI and SOP</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">5 Why</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">7 QC Tools</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">CAPA (Corrective and Preventive Actions)</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">QMS (Quality Management System)</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">Final Quality Control (FQC)</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">4M (Man, Machine, Material, Method)</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">OQC (Outgoing Quality Control)</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">5S, ESD & Kaizen</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">Process Improvement</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">8D Report</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">IQC (Incoming Quality Control)</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">Team Management & Building</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-gold-500/15 border border-white/10 hover:border-gold-400/40 text-sm text-slate-200 hover:text-gold-300 transition-all cursor-default">5 Core Tools</span>
+                        </div>
+                    </div>
+
+                    <!-- IT Industries Skills -->
+                    <div data-category="it" class="skill-group lg:col-span-5 glass-card rounded-3xl p-6 sm:p-8">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-11 h-11 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 flex items-center justify-center text-cyan-400">
+                                <i data-lucide="terminal" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-display text-xl sm:text-2xl font-bold text-white">IT Industries</h3>
+                                <p class="text-xs text-slate-400">Full-Stack Web, Programming & Databases</p>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2.5">
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-sm text-slate-200 hover:text-cyan-300 transition-all cursor-default">HTML</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-sm text-slate-200 hover:text-cyan-300 transition-all cursor-default">CSS</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-sm text-slate-200 hover:text-cyan-300 transition-all cursor-default">JavaScript</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-sm text-slate-200 hover:text-cyan-300 transition-all cursor-default">Python</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-sm text-slate-200 hover:text-cyan-300 transition-all cursor-default">Django</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-sm text-slate-200 hover:text-cyan-300 transition-all cursor-default">Spring Boot</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-sm text-slate-200 hover:text-cyan-300 transition-all cursor-default">Bootstrap</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-sm text-slate-200 hover:text-cyan-300 transition-all cursor-default">Java</span>
+                            <span class="px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-400/40 text-sm text-slate-200 hover:text-cyan-300 transition-all cursor-default">mySQL</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. PROJECTS SECTION -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="reveal text-center mb-14">
+                    <span class="text-xs font-semibold tracking-widest uppercase text-cyan-400">Engineering & Software</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Featured <span class="text-gold-400">Projects</span></h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                    <!-- Project 1: Water Logging Controller using GSM Module -->
+                    <div class="reveal glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-5">
+                                <div class="w-12 h-12 rounded-2xl bg-gold-500/15 border border-gold-400/30 flex items-center justify-center text-gold-400">
+                                    <i data-lucide="radio" class="w-6 h-6"></i>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-gold-500/10 text-gold-400 text-xs font-semibold border border-gold-400/20">
+                                    Embedded & IoT
+                                </span>
+                            </div>
+
+                            <h3 class="font-display text-2xl font-bold text-white mb-6">
+                                Water Logging Controller using GSM Module
+                            </h3>
+
+                            <!-- Interactive Tabs for Project 1 -->
+                            <div class="flex gap-2 p-1 rounded-xl bg-dark-900/80 border border-white/5 mb-6">
+                                <button onclick="switchProjectTab('p1', 'how', this)" class="p1-tab flex-1 py-2 px-3 rounded-lg text-xs sm:text-sm font-semibold bg-gold-500 text-dark-950 transition-all">
+                                    How It Works
+                                </button>
+                                <button onclick="switchProjectTab('p1', 'benefits', this)" class="p1-tab flex-1 py-2 px-3 rounded-lg text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all">
+                                    Key Benefits (4)
+                                </button>
+                                <button onclick="switchProjectTab('p1', 'all', this)" class="p1-tab flex-1 py-2 px-3 rounded-lg text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all">
+                                    Full View
+                                </button>
+                            </div>
+
+                            <!-- How It Works -->
+                            <div id="p1-how" class="space-y-3 mb-6">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-gold-400">How It Works:</h4>
+                                <ul class="space-y-2.5 text-sm text-slate-300">
+                                    <li class="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <i data-lucide="cpu" class="w-4 h-4 text-gold-400 shrink-0 mt-1"></i>
+                                        <span><strong class="text-white">Microcontroller:</strong> This acts as the brain of the project, monitoring water levels.</span>
+                                    </li>
+                                    <li class="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <i data-lucide="smartphone" class="w-4 h-4 text-gold-400 shrink-0 mt-1"></i>
+                                        <span><strong class="text-white">GSM Module:</strong> This part enables communication by sending alerts via SMS when water levels rise too high.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Benefits -->
+                            <div id="p1-benefits" class="hidden space-y-3">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-cyan-400">Benefits:</h4>
+                                <ol class="space-y-2.5 text-sm text-slate-300">
+                                    <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <span class="w-5 h-5 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+                                        <span><strong class="text-white">Real-Time Alerts:</strong> You get instant notifications on your phone about water levels, helping you respond quickly.</span>
+                                    </li>
+                                    <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <span class="w-5 h-5 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+                                        <span><strong class="text-white">Prevents Damage:</strong> By keeping you informed, it helps prevent water damage to property or equipment.</span>
+                                    </li>
+                                    <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <span class="w-5 h-5 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+                                        <span><strong class="text-white">Cost-Effective:</strong> Reduces the need for manual monitoring, saving time and labor costs.</span>
+                                    </li>
+                                    <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <span class="w-5 h-5 rounded-full bg-gold-500/20 text-gold-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">4</span>
+                                        <span><strong class="text-white">Convenient:</strong> Easily monitor water levels remotely without needing to be on-site.</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="pt-5 mt-6 border-t border-white/10 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-slate-400">Microcontroller</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-slate-400">GSM Module</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-slate-400">SMS Telemetry</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Voting System Using Python and MySQL -->
+                    <div class="reveal glass-card rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between gap-4 mb-5">
+                                <div class="w-12 h-12 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 flex items-center justify-center text-cyan-400">
+                                    <i data-lucide="database" class="w-6 h-6"></i>
+                                </div>
+                                <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold border border-cyan-400/20">
+                                    Software & Database
+                                </span>
+                            </div>
+
+                            <h3 class="font-display text-2xl font-bold text-white mb-6">
+                                Voting System Using Python and MySQL
+                            </h3>
+
+                            <!-- Interactive Tabs for Project 2 -->
+                            <div class="flex gap-2 p-1 rounded-xl bg-dark-900/80 border border-white/5 mb-6">
+                                <button onclick="switchProjectTab('p2', 'how', this)" class="p2-tab flex-1 py-2 px-3 rounded-lg text-xs sm:text-sm font-semibold bg-cyan-400 text-dark-950 transition-all">
+                                    How It Works
+                                </button>
+                                <button onclick="switchProjectTab('p2', 'benefits', this)" class="p2-tab flex-1 py-2 px-3 rounded-lg text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all">
+                                    Key Benefits (6)
+                                </button>
+                                <button onclick="switchProjectTab('p2', 'all', this)" class="p2-tab flex-1 py-2 px-3 rounded-lg text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all">
+                                    Full View
+                                </button>
+                            </div>
+
+                            <!-- How It Works -->
+                            <div id="p2-how" class="space-y-3 mb-6">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-cyan-400">How It Works:</h4>
+                                <ul class="space-y-2.5 text-sm text-slate-300">
+                                    <li class="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <i data-lucide="code" class="w-4 h-4 text-cyan-400 shrink-0 mt-1"></i>
+                                        <span><strong class="text-white">Python:</strong> This serves as the backend language to build the logic of the voting system, handling user inputs and processing votes.</span>
+                                    </li>
+                                    <li class="p-3.5 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <i data-lucide="server" class="w-4 h-4 text-cyan-400 shrink-0 mt-1"></i>
+                                        <span><strong class="text-white">MySQL:</strong> This database stores all the voting data securely, ensuring every vote is recorded accurately and can be retrieved when needed.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Benefits -->
+                            <div id="p2-benefits" class="hidden space-y-3">
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-gold-400">Benefits:</h4>
+                                <ol class="space-y-2.5 text-sm text-slate-300">
+                                    <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <span class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+                                        <span><strong class="text-white">Efficiency:</strong> Streamlines the voting process, making it faster and more accessible.</span>
+                                    </li>
+                                    <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <span class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+                                        <span><strong class="text-white">Accuracy:</strong> Reduces human error in counting and recording votes.</span>
+                                    </li>
+                                    <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <span class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+                                        <span><strong class="text-white">Security:</strong> Ensures data integrity and security, preventing tampering or unauthorized access.</span>
+                                    </li>
+                                    <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <span class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">4</span>
+                                        <span><strong class="text-white">Convenience:</strong> Voters can cast their votes from anywhere, eliminating the need to be physically present at a polling station.</span>
+                                    </li>
+                                    <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <span class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">5</span>
+                                        <span><strong class="text-white">Transparency:</strong> Provides a clear, auditable trail of votes, enhancing trust in the voting process.</span>
+                                    </li>
+                                    <li class="p-3 rounded-xl bg-white/[0.03] border border-white/5 flex items-start gap-3">
+                                        <span class="w-5 h-5 rounded-full bg-cyan-500/20 text-cyan-400 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">6</span>
+                                        <span><strong class="text-white">Scalability:</strong> Can handle a large number of voters without compromising performance.</span>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="pt-5 mt-6 border-t border-white/10 flex flex-wrap gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-slate-400">Python</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-slate-400">MySQL</span>
+                            <span class="px-2.5 py-1 rounded-lg bg-white/5 text-xs text-slate-400">Data Integrity</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CONTACT SECTION -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="reveal text-center mb-14">
+                    <span class="text-xs font-semibold tracking-widest uppercase text-gold-400">Let's Connect</span>
+                    <h2 class="font-display text-3xl sm:text-4xl font-bold text-white mt-2">Get in <span class="text-cyan-400">Touch</span></h2>
+                    <p class="text-slate-400 text-sm sm:text-base max-w-xl mx-auto mt-3">
+                        Reach out for Quality Engineering, Process Audits, PDI/ASN Consulting, or Software & Automation opportunities.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Left: Direct Contact Details & One-Click Actions -->
+                    <div class="reveal lg:col-span-5 glass-card rounded-3xl p-6 sm:p-8 space-y-6">
+                        <div>
+                            <h3 class="font-display text-2xl font-bold text-white">Direct Contact</h3>
+                            <p class="text-slate-400 text-sm mt-1">
+                                Copy the email address directly or launch your default mail app in one click.
+                            </p>
+                        </div>
+
+                        <!-- Email Action Card -->
+                        <div class="p-4 rounded-2xl bg-dark-900/80 border border-white/10 space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-11 h-11 rounded-xl bg-gold-500/15 border border-gold-400/30 flex items-center justify-center text-gold-400 shrink-0">
+                                    <i data-lucide="mail" class="w-5 h-5"></i>
+                                </div>
+                                <div class="min-w-0">
+                                    <p class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Official Email</p>
+                                    <p class="text-sm sm:text-base font-bold text-white truncate">sujeet.vishwa@tuv.net</p>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                                <button type="button" onclick="copyEmail()" class="w-full py-2.5 px-4 rounded-xl bg-white/5 hover:bg-gold-500/20 border border-white/10 hover:border-gold-400/40 text-gold-400 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all">
+                                    <i data-lucide="copy" class="w-4 h-4"></i>
+                                    <span>Copy Email</span>
+                                </button>
+                                <a href="mailto:sujeet.vishwa@tuv.net?subject=Portfolio%20Inquiry%20-%20Sujeet%20Kumar%20V" target="_top" onclick="openMailClient('Portfolio Inquiry - Sujeet Kumar V', 'Hello Sujeet,\n\nI visited your portfolio and would like to connect regarding...')" class="w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-400 hover:to-amber-500 text-dark-950 font-semibold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg shadow-gold-500/20 transition-all">
+                                    <i data-lucide="external-link" class="w-4 h-4"></i>
+                                    <span>Open Mail App</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Quick Profile Summary -->
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.02] border border-white/5">
+                                <i data-lucide="user-check" class="w-5 h-5 text-cyan-400 shrink-0"></i>
+                                <div>
+                                    <p class="font-semibold text-white">Sujeet Kumar V</p>
+                                    <p class="text-xs text-slate-400">Quality Engineer & Auditor</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 p-3.5 rounded-2xl bg-white/[0.02] border border-white/5">
+                                <i data-lucide="building-2" class="w-5 h-5 text-gold-400 shrink-0"></i>
+                                <div>
+                                    <p class="font-semibold text-white">Growth Electricals</p>
+                                    <p class="text-xs text-slate-400">Audits, ASN & PDI (Jio, Amazon, TUV)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Interactive Send Message Form -->
+                    <div class="reveal lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="font-display text-2xl font-bold text-white">Send a Message</h3>
+                                <p class="text-slate-400 text-sm mt-1">Fill out the form below for an instant response or pre-filled email draft.</p>
+                            </div>
+                            <div class="w-11 h-11 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 hidden sm:flex items-center justify-center text-cyan-400">
+                                <i data-lucide="message-square" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+
+                        <!-- Form Validation / Submission Feedback Banner -->
+                        <div id="contact-feedback" class="hidden mb-6 p-4 rounded-2xl border transition-all"></div>
+
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4" novalidate>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="sender-name" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Your Name *</label>
+                                    <input type="text" id="sender-name" name="name" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 rounded-xl bg-dark-900/90 border border-white/10 focus:border-gold-400 focus:outline-none text-sm text-white placeholder-slate-500 transition-colors">
+                                </div>
+                                <div>
+                                    <label for="sender-email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Your Email *</label>
+                                    <input type="email" id="sender-email" name="email" required placeholder="e.g. rahul@company.com" class="w-full px-4 py-3 rounded-xl bg-dark-900/90 border border-white/10 focus:border-gold-400 focus:outline-none text-sm text-white placeholder-slate-500 transition-colors">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="message-subject" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Subject *</label>
+                                <input type="text" id="message-subject" name="subject" required placeholder="e.g. Quality Audit / Engineering Opportunity" class="w-full px-4 py-3 rounded-xl bg-dark-900/90 border border-white/10 focus:border-cyan-400 focus:outline-none text-sm text-white placeholder-slate-500 transition-colors">
+                            </div>
+
+                            <div>
+                                <label for="message-body" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">Message *</label>
+                                <textarea id="message-body" name="message" rows="4" required placeholder="Write your message for Sujeet Kumar V..." class="w-full px-4 py-3 rounded-xl bg-dark-900/90 border border-white/10 focus:border-cyan-400 focus:outline-none text-sm text-white placeholder-slate-500 transition-colors resize-none"></textarea>
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row items-center gap-3 pt-2">
+                                <button type="submit" id="contact-submit-btn" class="w-full sm:w-auto flex-1 py-3.5 px-6 rounded-2xl bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-400 hover:to-amber-500 text-dark-950 font-semibold text-sm shadow-xl shadow-gold-500/20 flex items-center justify-center gap-2 transition-all hover:scale-[1.01]">
+                                    <i data-lucide="send" class="w-4 h-4"></i>
+                                    <span>Send Message</span>
+                                </button>
+                                <button type="button" onclick="launchPrefilledEmail()" class="w-full sm:w-auto py-3.5 px-5 rounded-2xl glass hover:bg-white/10 border border-white/10 hover:border-cyan-400/40 text-cyan-400 font-semibold text-sm flex items-center justify-center gap-2 transition-all">
+                                    <i data-lucide="mail-plus" class="w-4 h-4"></i>
+                                    <span>Send via Mail Client</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/10 bg-dark-900/60 backdrop-blur-md py-10 px-4 sm:px-6 lg:px-8 mt-12">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-gold-400 to-amber-600 flex items-center justify-center text-dark-950 font-display font-bold">
+                    S
+                </div>
+                <div>
+                    <p class="font-display font-bold text-white text-sm">Sujeet Kumar V</p>
+                    <p class="text-xs text-slate-400">Quality Engineer & Auditor</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400">
+                <a href="#contact" class="hover:text-gold-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="mail" class="w-3.5 h-3.5 text-gold-400"></i>
+                    <span>sujeet.vishwa@tuv.net</span>
+                </a>
+                <span>•</span>
+                <button type="button" onclick="copyEmail()" class="hover:text-cyan-400 transition-colors">Copy Email</button>
+                <span>•</span>
+                <a href="#hero" class="hover:text-white transition-colors">Back to Top</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 1. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (isHidden) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+
+        // 2. Copy Email to Clipboard (using document.execCommand fallback for iframe safety)
+        function copyEmail() {
+            const email = 'sujeet.vishwa@tuv.net';
+            const tempInput = document.createElement('input');
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast();
+            } catch (err) {
+                console.error('Copy failed', err);
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // 3. Intersection Observer for Scroll-Triggered Fade-in & Slide-up Animations
+        const observerOptions = {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // 4. Active Navbar Link Highlighting on Scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 160;
+                const sectionHeight = section.offsetHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-gold-400', 'bg-white/10');
+                link.classList.add('text-slate-300');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-slate-300');
+                    link.classList.add('text-gold-400', 'bg-white/10');
+                }
+            });
+        });
+
+        // 5. Experience Compact/Expanded Grid Toggle
+        function toggleResponsibilities(gridId, btnId) {
+            const grid = document.getElementById(gridId);
+            const btn = document.getElementById(btnId);
+            const items = grid.querySelectorAll('li');
+            const isCompact = grid.dataset.compact === 'true';
+
+            if (!isCompact) {
+                items.forEach((item, idx) => {
+                    if (idx >= 6) item.classList.add('hidden');
+                });
+                grid.dataset.compact = 'true';
+                btn.innerHTML = '<span>Show All 16</span><i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>';
+            } else {
+                items.forEach(item => item.classList.remove('hidden'));
+                grid.dataset.compact = 'false';
+                btn.innerHTML = '<span>Compact View</span><i data-lucide="minimize-2" class="w-3.5 h-3.5"></i>';
+            }
+            lucide.createIcons();
+        }
+
+        // 6. Filterable Skills Categories
+        function filterSkills(category, clickedBtn) {
+            // Update Button Styles
+            document.querySelectorAll('.skill-filter-btn').forEach(btn => {
+                btn.className = 'skill-filter-btn px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all glass text-slate-300 hover:text-gold-400';
+            });
+            clickedBtn.className = 'skill-filter-btn active px-5 py-2.5 rounded-2xl text-sm font-semibold transition-all bg-gradient-to-r from-gold-500 to-amber-600 text-dark-950 shadow-lg shadow-gold-500/20';
+
+            // Filter Cards
+            const groups = document.querySelectorAll('.skill-group');
+            groups.forEach(group => {
+                if (category === 'all') {
+                    group.classList.remove('hidden');
+                    if (group.dataset.category === 'electronics') {
+                        group.classList.remove('lg:col-span-12');
+                        group.classList.add('lg:col-span-7');
+                    } else {
+                        group.classList.remove('lg:col-span-12');
+                        group.classList.add('lg:col-span-5');
+                    }
+                } else if (group.dataset.category === category) {
+                    group.classList.remove('hidden', 'lg:col-span-7', 'lg:col-span-5');
+                    group.classList.add('lg:col-span-12');
+                } else {
+                    group.classList.add('hidden');
+                }
+            });
+        }
+
+        // 7. Interactive Project Tabs (How It Works / Key Benefits / Full View)
+        function switchProjectTab(projectPrefix, mode, clickedBtn) {
+            const howEl = document.getElementById(`${projectPrefix}-how`);
+            const benefitsEl = document.getElementById(`${projectPrefix}-benefits`);
+            const tabs = document.querySelectorAll(`.${projectPrefix}-tab`);
+
+            const activeClass = projectPrefix === 'p1' 
+                ? 'bg-gold-500 text-dark-950' 
+                : 'bg-cyan-400 text-dark-950';
+
+            tabs.forEach(tab => {
+                tab.className = `${projectPrefix}-tab flex-1 py-2 px-3 rounded-lg text-xs sm:text-sm font-semibold text-slate-400 hover:text-white transition-all`;
+            });
+            clickedBtn.className = `${projectPrefix}-tab flex-1 py-2 px-3 rounded-lg text-xs sm:text-sm font-semibold ${activeClass} transition-all`;
+
+            if (mode === 'how') {
+                howEl.classList.remove('hidden');
+                benefitsEl.classList.add('hidden');
+            } else if (mode === 'benefits') {
+                howEl.classList.add('hidden');
+                benefitsEl.classList.remove('hidden');
+            } else {
+                howEl.classList.remove('hidden');
+                benefitsEl.classList.remove('hidden');
+            }
+        }
+
+        // 8. Contact Form Validation, Submission Feedback & Mail Client Launcher
+        function openMailClient(subject, body) {
+            const recipient = 'sujeet.vishwa@tuv.net';
+            const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            try {
+                window.top.location.href = mailtoUrl;
+            } catch (e) {
+                window.location.href = mailtoUrl;
+            }
+        }
+
+        function launchPrefilledEmail() {
+            const name = document.getElementById('sender-name').value.trim();
+            const email = document.getElementById('sender-email').value.trim();
+            const subject = document.getElementById('message-subject').value.trim() || 'Portfolio Inquiry - Sujeet Kumar V';
+            const message = document.getElementById('message-body').value.trim() || 'Hello Sujeet,\n\nI would like to get in touch with you regarding...';
+
+            const fullBody = `${message}${name || email ? `\n\n---\nFrom: ${name || 'Visitor'}${email ? ` (${email})` : ''}` : ''}`;
+            openMailClient(subject, fullBody);
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const nameInput = document.getElementById('sender-name');
+            const emailInput = document.getElementById('sender-email');
+            const subjectInput = document.getElementById('message-subject');
+            const messageInput = document.getElementById('message-body');
+            const submitBtn = document.getElementById('contact-submit-btn');
+            const feedback = document.getElementById('contact-feedback');
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const subject = subjectInput.value.trim();
+            const message = messageInput.value.trim();
+
+            // Basic validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!name || !email || !emailPattern.test(email) || !subject || !message) {
+                feedback.className = 'mb-6 p-4 rounded-2xl border border-amber-500/40 bg-amber-500/10 text-amber-200 text-sm flex items-start gap-3';
+                feedback.innerHTML = `
+                    <i data-lucide="alert-circle" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                    <div>
+                        <p class="font-semibold text-white">Please complete all fields</p>
+                        <p class="text-xs text-amber-200/80 mt-0.5">Enter your name, a valid email address, a subject, and your message.</p>
+                    </div>
+                `;
+                feedback.classList.remove('hidden');
+                lucide.createIcons();
+                return;
+            }
+
+            // Loading state
+            const originalBtnHtml = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+            submitBtn.innerHTML = `
+                <svg class="animate-spin h-4 w-4 text-dark-950" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+                </svg>
+                <span>Preparing Message...</span>
+            `;
+
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+                submitBtn.innerHTML = originalBtnHtml;
+                lucide.createIcons();
+
+                // Save formatted summary for optional mailto launch
+                const formattedBody = `${message}\n\n---\nSender: ${name}\nReply-To: ${email}`;
+                window._lastPreparedMail = { subject, body: formattedBody };
+
+                feedback.className = 'mb-6 p-4 rounded-2xl border border-emerald-500/40 bg-emerald-500/10 text-emerald-200 text-sm';
+                feedback.innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5"></i>
+                        <div class="flex-1">
+                            <p class="font-semibold text-white">Message Ready for Sujeet Kumar V!</p>
+                            <p class="text-xs text-slate-300 mt-1">
+                                Thank you, <strong class="text-white">${name.replace(/</g, '&lt;')}</strong>. Since this is a static portfolio, click below to dispatch your pre-filled message in your email app or copy Sujeet's email directly.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-3">
+                                <button type="button" onclick="openMailClient(window._lastPreparedMail.subject, window._lastPreparedMail.body)" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-dark-950 font-semibold text-xs inline-flex items-center gap-1.5 transition-colors">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                    <span>Launch Email Client</span>
+                                </button>
+                                <button type="button" onclick="copyEmail()" class="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs inline-flex items-center gap-1.5 transition-colors">
+                                    <i data-lucide="copy" class="w-3.5 h-3.5 text-gold-400"></i>
+                                    <span>Copy sujeet.vishwa@tuv.net</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                feedback.classList.remove('hidden');
+                lucide.createIcons();
+
+                document.getElementById('contact-form').reset();
+            }, 500);
+        }
+    </script>
 </body>
 </html>
